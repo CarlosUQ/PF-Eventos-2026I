@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Estado de una compra que ya fue pagada.
+ */
 public class EstadoPagada extends EstadoCompraBase {
 
     @Override

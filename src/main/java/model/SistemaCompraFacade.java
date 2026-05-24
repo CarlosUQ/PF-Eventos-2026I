@@ -4,14 +4,35 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Fachada para realizar operaciones completas de compra.
+ *
+ * Coordina entradas, servicios, pagos, registro en sistema y exportacion.
+ */
 public class SistemaCompraFacade {
 
     private final SistemaEventos sistema;
 
+    /**
+     * Crea la fachada usando la instancia principal del sistema.
+     */
     public SistemaCompraFacade() {
         this.sistema = SistemaEventos.getInstancia();
     }
 
+    /**
+     * Realiza una compra completa.
+     *
+     * @param idCompra identificador de la compra
+     * @param usuario usuario que compra
+     * @param evento evento comprado
+     * @param tipoPago metodo de pago
+     * @param entradas entradas de la compra
+     * @param servicios servicios adicionales
+     * @param exportador exportador opcional del reporte
+     * @return compra creada
+     * @throws IOException si falla la exportacion
+     */
     public Compra realizarCompra(
             String idCompra,
             Usuario usuario,
@@ -22,10 +43,10 @@ public class SistemaCompraFacade {
             IExportadorReporte exportador
     ) throws IOException {
 
-        // 1. STRATEGY + FACTORY
+        // Se crea la estrategia de pago a partir del tipo elegido.
         IEstrategiaPago estrategiaPago = FabricaPago.crearPago(tipoPago);
 
-        // 2. BUILDER
+        // Se usa el builder para armar la compra paso a paso.
         Compra.Builder builder = new Compra.Builder(idCompra)
                 .usuario(usuario)
                 .evento(evento);
@@ -46,13 +67,13 @@ public class SistemaCompraFacade {
 
         Compra compra = builder.build();
 
-        // 3. OBSERVER
+        // El usuario queda como observador para recibir mensajes de su compra.
         compra.agregarObservador(usuario);
 
         sistema.agregarCompra(compra);
         usuario.agregarCompra(compra);
 
-        // 5. PAGO (STRATEGY)
+        // Se procesa el pago con la estrategia seleccionada.
         Pago pago = new Pago(
                 "P-" + idCompra,
                 estrategiaPago,
@@ -72,7 +93,7 @@ public class SistemaCompraFacade {
             );
         }
 
-        // 6. EXPORTADOR (ADAPTER)
+        // Si hay exportador, se genera el archivo de la compra.
         if (exportador != null) {
             exportador.exportar(compra);
         }
@@ -80,17 +101,33 @@ public class SistemaCompraFacade {
         return compra;
     }
 
+    /**
+     * Busca una compra por su identificador.
+     *
+     * @param idCompra identificador de la compra
+     * @return compra encontrada o null
+     */
     public Compra obtenerCompra(String idCompra) {
         return sistema.obtenerCompraPorId(idCompra);
     }
 
+    /**
+     * Cancela una compra por su identificador.
+     *
+     * @param idCompra identificador de la compra
+     * @return true si se pudo cancelar
+     */
     public boolean cancelarCompra(String idCompra) {
 
         Compra compra = sistema.obtenerCompraPorId(idCompra);
 
         if (compra != null) {
-            compra.cancelarCompra();
-            return true;
+            try {
+                compra.cancelarCompra();
+                return true;
+            } catch (IllegalStateException ex) {
+                return false;
+            }
         }
 
         return false;

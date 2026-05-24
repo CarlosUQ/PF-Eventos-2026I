@@ -3,6 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Representa una zona dentro de un recinto.
+ *
+ * Una zona tiene capacidad, precio base, tipo y asientos.
+ */
 public class Zona {
 
     private String idZona;
@@ -17,6 +22,15 @@ public class Zona {
 
     private List<Asiento> asientos;
 
+    /**
+     * Crea una zona con sus datos principales.
+     *
+     * @param idZona identificador de la zona
+     * @param nombre nombre de la zona
+     * @param capacidad capacidad maxima
+     * @param precioBase precio base de la zona
+     * @param tipoZona tipo de zona
+     */
     public Zona(String idZona,
                 String nombre,
                 int capacidad,
@@ -32,18 +46,32 @@ public class Zona {
         this.asientos = new ArrayList<>();
     }
 
-    // =========================
-    // MÉTODOS
-    // =========================
 
+    /**
+     * Agrega un asiento a la zona.
+     *
+     * @param asiento asiento que se desea agregar
+     */
     public void agregarAsiento(Asiento asiento) {
         asientos.add(asiento);
     }
 
+    /**
+     * Elimina un asiento por su identificador.
+     *
+     * @param idAsiento identificador del asiento
+     * @return true si el asiento fue eliminado
+     */
     public boolean eliminarAsiento(String idAsiento) {
         return asientos.removeIf(asiento -> asiento.getIdAsiento().equals(idAsiento));
     }
 
+    /**
+     * Busca un asiento por su identificador.
+     *
+     * @param idAsiento identificador del asiento
+     * @return asiento encontrado o null
+     */
     public Asiento obtenerAsientoPorId(String idAsiento) {
 
         for (Asiento asiento : asientos) {
@@ -56,11 +84,22 @@ public class Zona {
         return null;
     }
 
+    /**
+     * Indica si existe un asiento en la zona.
+     *
+     * @param idAsiento identificador del asiento
+     * @return true si existe
+     */
     public boolean existeAsiento(String idAsiento) {
 
         return obtenerAsientoPorId(idAsiento) != null;
     }
 
+    /**
+     * Consulta los asientos disponibles.
+     *
+     * @return lista de asientos disponibles
+     */
     public List<Asiento> consultarAsientosDisponibles() {
 
         List<Asiento> disponibles = new ArrayList<>();
@@ -75,6 +114,11 @@ public class Zona {
         return disponibles;
     }
 
+    /**
+     * Cuenta los asientos disponibles.
+     *
+     * @return cantidad de asientos disponibles
+     */
     public int obtenerCantidadDisponible() {
 
         int disponibles = 0;
@@ -89,10 +133,20 @@ public class Zona {
         return disponibles;
     }
 
+    /**
+     * Indica si la zona no tiene asientos disponibles.
+     *
+     * @return true si la zona esta llena
+     */
     public boolean estaLlena() {
         return obtenerCantidadDisponible() == 0;
     }
 
+    /**
+     * Cuenta los asientos ocupados.
+     *
+     * @return cantidad de asientos ocupados
+     */
     public int consultarOcupacion() {
 
         int ocupados = 0;
@@ -107,9 +161,6 @@ public class Zona {
         return ocupados;
     }
 
-    // =========================
-    // GETTERS Y SETTERS
-    // =========================
 
     public String getIdZona() {
         return idZona;

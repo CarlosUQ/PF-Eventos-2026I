@@ -3,6 +3,12 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Guarda la informacion principal del sistema de eventos.
+ *
+ * Funciona como una instancia unica para usuarios, eventos, recintos,
+ * compras, pagos e incidencias.
+ */
 public class SistemaEventos {
 
     private static SistemaEventos instancia;
@@ -32,6 +38,11 @@ public class SistemaEventos {
         this.pagos = new ArrayList<>();
     }
 
+    /**
+     * Obtiene la instancia unica del sistema.
+     *
+     * @return instancia del sistema
+     */
     public static SistemaEventos getInstancia() {
 
         if (instancia == null) {
@@ -41,14 +52,31 @@ public class SistemaEventos {
         return instancia;
     }
 
+    /**
+     * Registra un usuario.
+     *
+     * @param usuario usuario que se registra
+     */
     public void registrarUsuario(Usuario usuario) {
         usuarios.add(usuario);
     }
 
+    /**
+     * Elimina un usuario por su identificador.
+     *
+     * @param idUsuario identificador del usuario
+     * @return true si fue eliminado
+     */
     public boolean eliminarUsuario(String idUsuario) {
         return usuarios.removeIf(usuario -> usuario.getIdUsuario().equals(idUsuario));
     }
 
+    /**
+     * Busca un usuario por su identificador.
+     *
+     * @param idUsuario identificador del usuario
+     * @return usuario encontrado o null
+     */
     public Usuario obtenerUsuarioPorId(String idUsuario) {
 
         for (Usuario usuario : usuarios) {
@@ -66,6 +94,11 @@ public class SistemaEventos {
     }
 
 
+    /**
+     * Registra un administrador.
+     *
+     * @param administrador administrador que se registra
+     */
     public void registrarAdministrador(Administrador administrador) {
         administradores.add(administrador);
     }
@@ -86,6 +119,11 @@ public class SistemaEventos {
         return obtenerAdministradorPorId(idAdministrador) != null;
     }
 
+    /**
+     * Registra un evento.
+     *
+     * @param evento evento que se agrega
+     */
     public void agregarEvento(Evento evento) {
         eventos.add(evento);
     }
@@ -110,6 +148,11 @@ public class SistemaEventos {
         return obtenerEventoPorId(idEvento) != null;
     }
 
+    /**
+     * Registra un recinto.
+     *
+     * @param recinto recinto que se agrega
+     */
     public void agregarRecinto(Recinto recinto) {
         recintos.add(recinto);
     }
@@ -134,6 +177,11 @@ public class SistemaEventos {
         return obtenerRecintoPorId(idRecinto) != null;
     }
 
+    /**
+     * Registra una compra.
+     *
+     * @param compra compra que se agrega
+     */
     public void agregarCompra(Compra compra) {
         compras.add(compra);
     }
@@ -155,6 +203,11 @@ public class SistemaEventos {
     }
 
 
+    /**
+     * Registra un pago.
+     *
+     * @param pago pago que se agrega
+     */
     public void registrarPago(Pago pago) {
         pagos.add(pago);
     }
@@ -172,6 +225,11 @@ public class SistemaEventos {
     }
 
 
+    /**
+     * Registra una incidencia.
+     *
+     * @param incidencia incidencia que se agrega
+     */
     public void registrarIncidencia(Incidencia incidencia) {
         incidencias.add(incidencia);
     }

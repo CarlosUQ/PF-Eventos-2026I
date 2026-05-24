@@ -1,9 +1,9 @@
 package model;
 
 /**
- * Estrategia de pago con PSE.
+ * Estrategia de pago con tarjeta de debito.
  */
-public class PagoPSE implements IEstrategiaPago {
+public class PagoTarjetaDebito implements IEstrategiaPago {
 
     /**
      * Aprueba el pago si el monto es mayor que cero.

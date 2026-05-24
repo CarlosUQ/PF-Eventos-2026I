@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Representa un asiento dentro de una zona.
+ *
+ * Un asiento puede estar disponible, reservado, vendido o bloqueado.
+ */
 public class Asiento {
 
     private String idAsiento;
@@ -10,6 +15,14 @@ public class Asiento {
 
     private EstadoAsiento estadoAsiento;
 
+    /**
+     * Crea un asiento con su ubicacion y estado inicial.
+     *
+     * @param idAsiento identificador del asiento
+     * @param fila fila del asiento
+     * @param numero numero del asiento
+     * @param estadoAsiento estado inicial del asiento
+     */
     public Asiento(String idAsiento,
                    String fila,
                    int numero,
@@ -22,14 +35,27 @@ public class Asiento {
     }
 
 
+    /**
+     * Cambia el estado del asiento.
+     *
+     * @param nuevoEstado nuevo estado del asiento
+     */
     public void cambiarEstado(EstadoAsiento nuevoEstado) {
         this.estadoAsiento = nuevoEstado;
     }
 
+    /**
+     * Indica si el asiento esta disponible.
+     *
+     * @return true si el asiento esta disponible
+     */
     public boolean estaDisponible() {
         return estadoAsiento == EstadoAsiento.DISPONIBLE;
     }
 
+    /**
+     * Reserva el asiento si esta disponible.
+     */
     public void reservar() {
 
         if (estadoAsiento == EstadoAsiento.DISPONIBLE) {
@@ -37,6 +63,9 @@ public class Asiento {
         }
     }
 
+    /**
+     * Marca el asiento como vendido si esta disponible o reservado.
+     */
     public void vender() {
 
         if (estadoAsiento == EstadoAsiento.DISPONIBLE
@@ -46,10 +75,16 @@ public class Asiento {
         }
     }
 
+    /**
+     * Bloquea el asiento.
+     */
     public void bloquear() {
         estadoAsiento = EstadoAsiento.BLOQUEADO;
     }
 
+    /**
+     * Libera el asiento y lo deja disponible.
+     */
     public void liberar() {
         estadoAsiento = EstadoAsiento.DISPONIBLE;
     }

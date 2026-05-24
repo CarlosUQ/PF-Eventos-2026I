@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Estado inicial de una compra.
+ *
+ * Permite agregar entradas, servicios y registrar un pago.
+ */
 public class EstadoCreada extends EstadoCompraBase {
 
     @Override
@@ -36,6 +41,7 @@ public class EstadoCreada extends EstadoCompraBase {
         compra.setPago(pago);
 
         if (pago.getEstadoPago() == EstadoPago.APROBADO) {
+            // Si el pago fue aprobado, la compra pasa a pagada.
             compra.setEstado(new EstadoPagada());
         }
     }

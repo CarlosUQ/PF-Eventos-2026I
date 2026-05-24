@@ -3,6 +3,11 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Representa un usuario base del sistema.
+ *
+ * Guarda datos personales, metodos de pago y compras realizadas.
+ */
 public abstract class Usuario implements IObservador {
 
     protected String idUsuario;
@@ -14,6 +19,15 @@ public abstract class Usuario implements IObservador {
     protected List<String> metodosPagoRegistrados;
     protected List<Compra> compras;
 
+    /**
+     * Crea un usuario con sus datos personales.
+     *
+     * @param idUsuario identificador del usuario
+     * @param nombreCompleto nombre completo del usuario
+     * @param correoElectronico correo electronico del usuario
+     * @param numeroTelefono numero de telefono
+     * @param contrasena contrasena del usuario
+     */
     public Usuario(String idUsuario,
                    String nombreCompleto,
                    String correoElectronico,
@@ -30,39 +44,57 @@ public abstract class Usuario implements IObservador {
         this.compras = new ArrayList<>();
     }
 
-    // =========================
-    // MÉTODOS DE PAGO
-    // =========================
 
+    /**
+     * Agrega un metodo de pago si no esta repetido.
+     *
+     * @param metodoPago metodo de pago que se desea guardar
+     */
     public void agregarMetodoPago(String metodoPago) {
         if (!metodosPagoRegistrados.contains(metodoPago)) {
             metodosPagoRegistrados.add(metodoPago);
         }
     }
 
+    /**
+     * Elimina un metodo de pago.
+     *
+     * @param metodoPago metodo de pago que se desea eliminar
+     * @return true si el metodo fue eliminado
+     */
     public boolean eliminarMetodoPago(String metodoPago) {
         return metodosPagoRegistrados.remove(metodoPago);
     }
 
-    // =========================
-    // OBSERVER
-    // =========================
 
+    /**
+     * Recibe una notificacion.
+     *
+     * @param mensaje mensaje recibido
+     */
     @Override
     public void actualizar(String mensaje) {
         System.out.println("Notificación para " + nombreCompleto + ": " + mensaje);
     }
 
-    // =========================
-    // COMPRAS
-    // =========================
 
+    /**
+     * Agrega una compra si no esta repetida.
+     *
+     * @param compra compra que se desea guardar
+     */
     public void agregarCompra(Compra compra) {
         if (compra != null && !compras.contains(compra)) {
             compras.add(compra);
         }
     }
 
+    /**
+     * Busca una compra por su identificador.
+     *
+     * @param idCompra identificador de la compra
+     * @return compra encontrada o null
+     */
     public Compra obtenerCompraPorId(String idCompra) {
 
         for (Compra compra : compras) {
@@ -74,10 +106,14 @@ public abstract class Usuario implements IObservador {
         return null;
     }
 
-    // =========================
-    // PERFIL
-    // =========================
 
+    /**
+     * Actualiza los datos principales del perfil.
+     *
+     * @param nombre nuevo nombre
+     * @param correo nuevo correo
+     * @param telefono nuevo telefono
+     */
     public void actualizarPerfil(String nombre,
                                  String correo,
                                  String telefono) {
@@ -87,9 +123,6 @@ public abstract class Usuario implements IObservador {
         this.numeroTelefono = telefono;
     }
 
-    // =========================
-    // GETTERS
-    // =========================
 
     public String getIdUsuario() {
         return idUsuario;
@@ -119,9 +152,6 @@ public abstract class Usuario implements IObservador {
         return new ArrayList<>(compras);
     }
 
-    // =========================
-    // TO STRING
-    // =========================
 
     @Override
     public String toString() {

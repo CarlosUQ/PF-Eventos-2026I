@@ -1,7 +1,15 @@
 package model;
 
+/**
+ * Clase base para los estados de una compra.
+ *
+ * Define como no permitidas las operaciones que un estado no sobrescribe.
+ */
 public abstract class EstadoCompraBase implements EstadoCompraState {
 
+    /**
+     * Muestra un mensaje cuando una operacion no se permite.
+     */
     protected void operacionNoPermitida() {
         System.out.println("Operación no permitida en este estado.");
     }
