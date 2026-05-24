@@ -1,6 +1,6 @@
 package model;
 
-public class PagoTarjetaDebito implements IEstrategiaPago {
+public class PagoNequi implements IEstrategiaPago {
 
     @Override
     public boolean procesarPago(double monto) {
