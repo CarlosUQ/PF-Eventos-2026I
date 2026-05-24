@@ -1,4 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9f01d763-d23d-47e5-b511-ec816b960b13" name="Changes" comment="Se hizo el Controller del programa (AdminController, UsuarioController, AppContext, MainController)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/EstadoPago.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/EstadoReembolsada.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Evento.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ExportadorCSVAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ExportadorPDFAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FabricaPago.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IEstrategiaPago.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IExportadorReporte.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/IObservador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ISujeto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Incidencia.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Pago.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PagoDaviplata.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PagoNequi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PagoPSE.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/PagoPaypal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ServicioBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ServicioDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/ServicioMetricas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SistemaCompraFacade.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/SistemaEventos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/TipoZona.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Usuario.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/UsuarioComun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/VIPDecorator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Zona.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="25" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev_carlos" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Edw119&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/CarlosUQ/PF-Eventos-2026I.git&quot;,
+    &quot;accountId&quot;: &quot;4f987af7-eb71-427a-88e0-f499ad7db85d&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="3DrFxBQJx5YMvwFUfolnfgFLmCx" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev__edward&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/monzo/OneDrive/Documents/GitHub/PF-Eventos-2026I&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="PF-Eventos-2026I" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="PF-Eventos-2026I" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9f01d763-d23d-47e5-b511-ec816b960b13" name="Changes" comment="" />
+      <created>1779150711201</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1779150711201</updated>
+      <workItem from="1779150712558" duration="1299000" />
+      <workItem from="1779592567727" duration="1141000" />
+      <workItem from="1779655303073" duration="1316000" />
+      <workItem from="1779659839097" duration="101000" />
+      <workItem from="1779660381589" duration="759000" />
+    </task>
+    <task id="LOCAL-00001" summary="Se hizo la clase Pago y otras clases con diferentes formas de pago">
+      <option name="closed" value="true" />
+      <created>1779151988242</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1779151988244</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Se hizo la clase enum EstadoPago, la clase EstadoReembolsada (necesita extender de la clase EstadoCompraBase), Evento (necesita las clases EstadoEvento y Recinto), ExportadorCSVAdapter (Necesita la clsae Compra para complementar), ExportadorPDFAdapter (Necesita la clsae Compra para complementar), La FabricaPago (Necesita la clase PagoTarjetaCredito y PagoTarjetaDebito), Las clases interface IEstrategiaPago, IExportadorReporte, IObservador e ISujeto y la clase Incidencia">
+      <option name="closed" value="true" />
+      <created>1779593688325</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1779593688326</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Se hizo el Controller del programa (AdminController, UsuarioController, AppContext, MainController)">
+      <option name="closed" value="true" />
+      <created>1779661086001</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1779661086001</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Se hizo la clase Pago y otras clases con diferentes formas de pago" />
+    <MESSAGE value="Se hizo la clase enum EstadoPago, la clase EstadoReembolsada (necesita extender de la clase EstadoCompraBase), Evento (necesita las clases EstadoEvento y Recinto), ExportadorCSVAdapter (Necesita la clsae Compra para complementar), ExportadorPDFAdapter (Necesita la clsae Compra para complementar), La FabricaPago (Necesita la clase PagoTarjetaCredito y PagoTarjetaDebito), Las clases interface IEstrategiaPago, IExportadorReporte, IObservador e ISujeto y la clase Incidencia" />
+    <MESSAGE value="Se hizo el Controller del programa (AdminController, UsuarioController, AppContext, MainController)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se hizo el Controller del programa (AdminController, UsuarioController, AppContext, MainController)" />
+  </component>
 </project>
