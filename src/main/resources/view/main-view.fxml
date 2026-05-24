@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.MainController">
+    <top>
+        <HBox spacing="12" style="-fx-padding: 10; -fx-background-color: #ececec;">
+            <Label text="Plataforma de gestion de eventos" style="-fx-font-size: 18; -fx-font-weight: bold;" />
+            <Label fx:id="resumenLabel" style="-fx-padding: 4 0 0 0;" />
+        </HBox>
+    </top>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Usuario">
+                <content>
+                    <fx:include source="user-view.fxml" />
+                </content>
+            </Tab>
+            <Tab text="Administrador">
+                <content>
+                    <fx:include source="admin-view.fxml" />
+                </content>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>

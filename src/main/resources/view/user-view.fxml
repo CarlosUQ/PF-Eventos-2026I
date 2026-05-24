@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.UsuarioController">
+    <center>
+        <ScrollPane fitToWidth="true">
+            <content>
+                <VBox spacing="10" style="-fx-padding: 12;">
+                    <TitledPane text="Sesion y perfil" expanded="true">
+                        <content>
+                            <VBox spacing="8" style="-fx-padding: 10;">
+                                <HBox spacing="8">
+                                    <Label text="Usuario" />
+                                    <ComboBox fx:id="comboUsuario" prefWidth="260" />
+                                    <Button text="Refrescar" onAction="#refrescarPanelUsuario" />
+                                    <Button text="Actualizar perfil" onAction="#aplicarPerfil" />
+                                </HBox>
+                                <GridPane hgap="8" vgap="8">
+                                    <Label text="Nombre" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                                    <TextField fx:id="txtNombrePerfil" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="220" />
+                                    <Label text="Correo" GridPane.rowIndex="0" GridPane.columnIndex="2" />
+                                    <TextField fx:id="txtCorreoPerfil" GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="220" />
+                                    <Label text="Telefono" GridPane.rowIndex="0" GridPane.columnIndex="4" />
+                                    <TextField fx:id="txtTelefonoPerfil" GridPane.rowIndex="0" GridPane.columnIndex="5" prefWidth="160" />
+                                </GridPane>
+                                <HBox spacing="8">
+                                    <TextField fx:id="txtNombreRegistro" promptText="Nombre nuevo" prefWidth="180" />
+                                    <TextField fx:id="txtCorreoRegistro" promptText="Correo" prefWidth="180" />
+                                    <TextField fx:id="txtTelefonoRegistro" promptText="Telefono" prefWidth="140" />
+                                    <Button text="Registrar usuario" onAction="#registrarUsuario" />
+                                </HBox>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <TitledPane text="Eventos y compra" expanded="true">
+                        <content>
+                            <VBox spacing="8" style="-fx-padding: 10;">
+                                <HBox spacing="8">
+                                    <TextField fx:id="txtFiltroCiudad" promptText="Ciudad" prefWidth="130" />
+                                    <TextField fx:id="txtFiltroCategoria" promptText="Categoria" prefWidth="130" />
+                                    <TextField fx:id="txtFiltroPrecio" promptText="Precio max." prefWidth="110" />
+                                    <DatePicker fx:id="filtroFecha" promptText="Fecha" prefWidth="130" />
+                                    <Button text="Filtrar" onAction="#aplicarFiltros" />
+                                    <Button text="Limpiar" onAction="#limpiarFiltros" />
+                                </HBox>
+                                <SplitPane dividerPositions="0.58" prefHeight="260">
+                                    <TableView fx:id="tablaEventos">
+                                        <columns>
+                                            <TableColumn fx:id="colEventoNombre" text="Evento" prefWidth="170" />
+                                            <TableColumn fx:id="colEventoCategoria" text="Categoria" prefWidth="120" />
+                                            <TableColumn fx:id="colEventoCiudad" text="Ciudad" prefWidth="110" />
+                                            <TableColumn fx:id="colEventoFecha" text="Fecha" prefWidth="100" />
+                                            <TableColumn fx:id="colEventoDesde" text="Desde" prefWidth="90" />
+                                        </columns>
+                                    </TableView>
+                                    <TextArea fx:id="txtDetalleEvento" editable="false" wrapText="true" />
+                                </SplitPane>
+                                <HBox spacing="8">
+                                    <ComboBox fx:id="comboZona" prefWidth="260" />
+                                    <ComboBox fx:id="comboAsiento" prefWidth="140" />
+                                    <ComboBox fx:id="comboPago" prefWidth="160" />
+                                    <CheckBox fx:id="chkVip" text="VIP" />
+                                    <CheckBox fx:id="chkSeguro" text="Seguro" />
+                                    <CheckBox fx:id="chkMerch" text="Merch" />
+                                    <CheckBox fx:id="chkParqueadero" text="Parqueadero" />
+                                </HBox>
+                                <HBox spacing="12">
+                                    <Label fx:id="lblTotalCompra" text="Total: $0" style="-fx-font-weight: bold;" />
+                                    <Button text="Crear y pagar" onAction="#crearCompra" />
+                                    <Button text="Confirmar" onAction="#confirmarCompra" />
+                                    <Button text="Cancelar" onAction="#cancelarCompra" />
+                                </HBox>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+
+                    <TitledPane text="Historial y reportes" expanded="true">
+                        <content>
+                            <VBox spacing="8" style="-fx-padding: 10;">
+                                <HBox spacing="8">
+                                    <TextField fx:id="txtFiltroHistorialEvento" promptText="Evento" prefWidth="180" />
+                                    <ComboBox fx:id="comboFiltroHistorialEstado" prefWidth="150" />
+                                    <DatePicker fx:id="dpFiltroHistorialFecha" promptText="Fecha" prefWidth="130" />
+                                    <Button text="Filtrar historial" onAction="#aplicarFiltrosHistorial" />
+                                    <Button text="Limpiar historial" onAction="#limpiarFiltrosHistorial" />
+                                </HBox>
+                                <TableView fx:id="tablaCompras" prefHeight="180">
+                                    <columns>
+                                        <TableColumn fx:id="colCompraId" text="ID" prefWidth="90" />
+                                        <TableColumn fx:id="colCompraEvento" text="Evento" prefWidth="220" />
+                                        <TableColumn fx:id="colCompraEstado" text="Estado" prefWidth="130" />
+                                        <TableColumn fx:id="colCompraTotal" text="Total" prefWidth="110" />
+                                        <TableColumn fx:id="colCompraFecha" text="Fecha" prefWidth="120" />
+                                    </columns>
+                                </TableView>
+                                <HBox spacing="8">
+                                    <Button text="Exportar CSV" onAction="#exportarCSV" />
+                                    <Button text="Exportar PDF" onAction="#exportarPDF" />
+                                    <Label fx:id="lblMensajeUsuario" />
+                                </HBox>
+                            </VBox>
+                        </content>
+                    </TitledPane>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

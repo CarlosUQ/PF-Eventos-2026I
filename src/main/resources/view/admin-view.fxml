@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="controller.AdminController">
+    <top>
+        <HBox spacing="10" style="-fx-padding: 8;">
+            <Button text="Refrescar" onAction="#refrescarTodo" />
+            <Label fx:id="lblAdminMensaje" />
+        </HBox>
+    </top>
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <Tab text="Usuarios">
+                <content>
+                    <VBox spacing="8" style="-fx-padding: 10;">
+                        <HBox spacing="8">
+                            <TextField fx:id="txtAdminUsuarioNombre" promptText="Nombre" prefWidth="180" />
+                            <TextField fx:id="txtAdminUsuarioCorreo" promptText="Correo" prefWidth="180" />
+                            <TextField fx:id="txtAdminUsuarioTelefono" promptText="Telefono" prefWidth="140" />
+                            <Button text="Crear" onAction="#crearUsuarioAdmin" />
+                            <Button text="Actualizar seleccionado" onAction="#actualizarUsuarioAdmin" />
+                            <Button text="Eliminar" onAction="#eliminarUsuarioAdmin" />
+                        </HBox>
+                        <TableView fx:id="tablaAdminUsuarios">
+                            <columns>
+                                <TableColumn fx:id="colAdminUsuarioId" text="ID" prefWidth="100" />
+                                <TableColumn fx:id="colAdminUsuarioNombre" text="Nombre" prefWidth="260" />
+                                <TableColumn fx:id="colAdminUsuarioCorreo" text="Correo" prefWidth="260" />
+                                <TableColumn fx:id="colAdminUsuarioTelefono" text="Telefono" prefWidth="140" />
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </content>
+            </Tab>
+
+            <Tab text="Recintos">
+                <content>
+                    <ScrollPane fitToWidth="true">
+                        <content>
+                            <VBox spacing="10" style="-fx-padding: 10;">
+                                <HBox spacing="8">
+                                    <TextField fx:id="txtRecintoNombre" promptText="Recinto" prefWidth="180" />
+                                    <TextField fx:id="txtRecintoDireccion" promptText="Direccion" prefWidth="220" />
+                                    <TextField fx:id="txtRecintoCiudad" promptText="Ciudad" prefWidth="140" />
+                                    <Button text="Crear recinto" onAction="#crearRecinto" />
+                                    <Button text="Actualizar recinto" onAction="#actualizarRecinto" />
+                                    <Button text="Eliminar recinto" onAction="#eliminarRecinto" />
+                                </HBox>
+                                <Label text="Recintos" style="-fx-font-weight: bold;" />
+                                <TableView fx:id="tablaRecintos" prefHeight="170">
+                                    <columns>
+                                        <TableColumn fx:id="colRecintoId" text="ID" prefWidth="90" />
+                                        <TableColumn fx:id="colRecintoNombre" text="Nombre" prefWidth="220" />
+                                        <TableColumn fx:id="colRecintoCiudad" text="Ciudad" prefWidth="140" />
+                                        <TableColumn fx:id="colRecintoCapacidad" text="Aforo" prefWidth="90" />
+                                    </columns>
+                                </TableView>
+
+                                <HBox spacing="8">
+                                    <ComboBox fx:id="comboRecintoZona" prefWidth="240" />
+                                    <TextField fx:id="txtZonaNombre" promptText="Zona" prefWidth="150" />
+                                    <TextField fx:id="txtZonaCapacidad" promptText="Capacidad" prefWidth="100" />
+                                    <TextField fx:id="txtZonaPrecio" promptText="Precio" prefWidth="100" />
+                                    <ComboBox fx:id="comboTipoZona" prefWidth="150" />
+                                    <Button text="Crear zona" onAction="#crearZona" />
+                                    <Button text="Actualizar zona" onAction="#actualizarZona" />
+                                    <Button text="Eliminar zona" onAction="#eliminarZona" />
+                                </HBox>
+                                <Label text="Zonas del recinto seleccionado" style="-fx-font-weight: bold;" />
+                                <TableView fx:id="tablaZonas" prefHeight="150">
+                                    <columns>
+                                        <TableColumn fx:id="colZonaId" text="ID" prefWidth="90" />
+                                        <TableColumn fx:id="colZonaNombre" text="Nombre" prefWidth="180" />
+                                        <TableColumn fx:id="colZonaCapacidad" text="Capacidad" prefWidth="100" />
+                                        <TableColumn fx:id="colZonaPrecio" text="Precio" prefWidth="100" />
+                                        <TableColumn fx:id="colZonaOcupacion" text="Ocupacion" prefWidth="100" />
+                                    </columns>
+                                </TableView>
+
+                                <HBox spacing="8">
+                                    <ComboBox fx:id="comboZonaAsiento" prefWidth="240" />
+                                    <TextField fx:id="txtAsientoFila" promptText="Fila" prefWidth="90" />
+                                    <TextField fx:id="txtAsientoNumero" promptText="Numero" prefWidth="90" />
+                                    <ComboBox fx:id="comboEstadoAsiento" prefWidth="150" />
+                                    <Button text="Crear asiento" onAction="#crearAsiento" />
+                                    <Button text="Actualizar asiento" onAction="#actualizarAsiento" />
+                                    <Button text="Cambiar estado" onAction="#cambiarEstadoAsiento" />
+                                    <Button text="Eliminar asiento" onAction="#eliminarAsiento" />
+                                </HBox>
+                                <Label text="Asientos de la zona seleccionada" style="-fx-font-weight: bold;" />
+                                <TableView fx:id="tablaAsientos" prefHeight="170">
+                                    <columns>
+                                        <TableColumn fx:id="colAsientoId" text="ID" prefWidth="140" />
+                                        <TableColumn fx:id="colAsientoFila" text="Fila" prefWidth="90" />
+                                        <TableColumn fx:id="colAsientoNumero" text="Numero" prefWidth="90" />
+                                        <TableColumn fx:id="colAsientoEstado" text="Estado" prefWidth="140" />
+                                    </columns>
+                                </TableView>
+                            </VBox>
+                        </content>
+                    </ScrollPane>
+                </content>
+            </Tab>
+
+            <Tab text="Eventos">
+                <content>
+                    <VBox spacing="8" style="-fx-padding: 10;">
+                        <GridPane hgap="8" vgap="8">
+                            <TextField fx:id="txtEventoNombre" promptText="Nombre" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="170" />
+                            <TextField fx:id="txtEventoCategoria" promptText="Categoria" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="140" />
+                            <TextField fx:id="txtEventoCiudad" promptText="Ciudad" GridPane.rowIndex="0" GridPane.columnIndex="2" prefWidth="140" />
+                            <DatePicker fx:id="dpEventoFecha" promptText="Fecha" GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="130" />
+                            <ComboBox fx:id="comboEventoRecinto" GridPane.rowIndex="0" GridPane.columnIndex="4" prefWidth="220" />
+                            <ComboBox fx:id="comboEventoEstado" GridPane.rowIndex="0" GridPane.columnIndex="5" prefWidth="140" />
+                            <TextArea fx:id="txtEventoDescripcion" promptText="Descripcion" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="4" prefRowCount="2" />
+                            <Button text="Crear evento" onAction="#crearEvento" GridPane.rowIndex="1" GridPane.columnIndex="4" />
+                            <Button text="Actualizar estado" onAction="#actualizarEstadoEvento" GridPane.rowIndex="1" GridPane.columnIndex="5" />
+                        </GridPane>
+                        <HBox spacing="8">
+                            <Button text="Actualizar evento seleccionado" onAction="#actualizarEvento" />
+                            <Button text="Eliminar evento" onAction="#eliminarEvento" />
+                        </HBox>
+                        <TableView fx:id="tablaAdminEventos">
+                            <columns>
+                                <TableColumn fx:id="colAdminEventoId" text="ID" prefWidth="90" />
+                                <TableColumn fx:id="colAdminEventoNombre" text="Nombre" prefWidth="240" />
+                                <TableColumn fx:id="colAdminEventoEstado" text="Estado" prefWidth="130" />
+                                <TableColumn fx:id="colAdminEventoRecinto" text="Recinto" prefWidth="220" />
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </content>
+            </Tab>
+
+            <Tab text="Compras e incidencias">
+                <content>
+                    <VBox spacing="8" style="-fx-padding: 10;">
+                        <HBox spacing="8">
+                            <Button text="Confirmar compra" onAction="#confirmarCompraAdmin" />
+                            <Button text="Cancelar compra" onAction="#cancelarCompraAdmin" />
+                            <Button text="Reembolsar" onAction="#reembolsarCompraAdmin" />
+                        </HBox>
+                        <TableView fx:id="tablaAdminCompras" prefHeight="210">
+                            <columns>
+                                <TableColumn fx:id="colAdminCompraId" text="ID" prefWidth="90" />
+                                <TableColumn fx:id="colAdminCompraUsuario" text="Usuario" prefWidth="200" />
+                                <TableColumn fx:id="colAdminCompraEvento" text="Evento" prefWidth="220" />
+                                <TableColumn fx:id="colAdminCompraEstado" text="Estado" prefWidth="130" />
+                                <TableColumn fx:id="colAdminCompraTotal" text="Total" prefWidth="110" />
+                            </columns>
+                        </TableView>
+                        <HBox spacing="8">
+                            <TextField fx:id="txtIncidenciaTipo" promptText="Tipo" prefWidth="140" />
+                            <TextField fx:id="txtIncidenciaEntidad" promptText="Entidad afectada" prefWidth="160" />
+                            <TextArea fx:id="txtIncidenciaDescripcion" promptText="Descripcion" prefRowCount="2" prefWidth="360" />
+                            <Button text="Registrar incidencia" onAction="#registrarIncidencia" />
+                        </HBox>
+                        <TableView fx:id="tablaIncidencias" prefHeight="180">
+                            <columns>
+                                <TableColumn fx:id="colIncidenciaId" text="ID" prefWidth="90" />
+                                <TableColumn fx:id="colIncidenciaTipo" text="Tipo" prefWidth="160" />
+                                <TableColumn fx:id="colIncidenciaEntidad" text="Entidad" prefWidth="180" />
+                                <TableColumn fx:id="colIncidenciaFecha" text="Fecha" prefWidth="120" />
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </content>
+            </Tab>
+
+            <Tab text="Metricas">
+                <content>
+                    <ScrollPane fitToWidth="true">
+                        <content>
+                            <VBox spacing="10" style="-fx-padding: 10;">
+                                <Label fx:id="lblMetricasResumen" style="-fx-font-weight: bold;" />
+                                <HBox spacing="8">
+                                    <DatePicker fx:id="dpReporteInicio" promptText="Inicio" prefWidth="130" />
+                                    <DatePicker fx:id="dpReporteFin" promptText="Fin" prefWidth="130" />
+                                    <Button text="Reporte CSV" onAction="#exportarReporteCSV" />
+                                    <Button text="Reporte PDF" onAction="#exportarReportePDF" />
+                                </HBox>
+                                <HBox spacing="10">
+                                    <VBox spacing="6" prefWidth="370">
+                                        <Label text="Ventas" style="-fx-font-weight: bold;" />
+                                        <Label fx:id="lblTotalVentas" />
+                                        <Label fx:id="lblVentasRealizadas" />
+                                        <Label fx:id="lblRangoVentas" />
+                                    </VBox>
+                                    <VBox spacing="6" prefWidth="370">
+                                        <Label text="Ocupacion por zona" style="-fx-font-weight: bold;" />
+                                        <TextArea fx:id="txtOcupacionZona" editable="false" wrapText="true" prefHeight="230" prefWidth="370" />
+                                    </VBox>
+                                </HBox>
+                                <HBox spacing="10">
+                                    <BarChart fx:id="chartServiciosAdicionales" legendVisible="false" prefHeight="260" prefWidth="370">
+                                        <xAxis>
+                                            <CategoryAxis label="Servicio" />
+                                        </xAxis>
+                                        <yAxis>
+                                            <NumberAxis label="Ingresos" />
+                                        </yAxis>
+                                    </BarChart>
+                                    <BarChart fx:id="chartTopEventos" legendVisible="false" prefHeight="260" prefWidth="370">
+                                        <xAxis>
+                                            <CategoryAxis label="Evento" />
+                                        </xAxis>
+                                        <yAxis>
+                                            <NumberAxis label="Entradas" />
+                                        </yAxis>
+                                    </BarChart>
+                                </HBox>
+                            </VBox>
+                        </content>
+                    </ScrollPane>
+                </content>
+            </Tab>
+        </TabPane>
+    </center>
+</BorderPane>
